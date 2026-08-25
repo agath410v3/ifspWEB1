@@ -1,0 +1,16 @@
+
+.quadrado-verde{
+    background-color: green;
+}
+
+.headerPousada{
+    display: flex;
+    background-image: url("paisagem.png");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.headerBotao{
+    padding: 5px;
+}
