@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fedcd9;
+  color: #111111;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.25;
+  background-image: var(--bg-img);
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  animation: loopBackground 15s linear infinite;
+}
+
+@keyframes loopBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -400px -400px;
+  }
+}
+
+.page-background {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.page-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: clamp(2.2rem, 5vw, 3.8rem) 1.25rem clamp(1.5rem, 3.5vw, 2.4rem);
+}
+
+.page-title {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(1.9rem, 5vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #0d0d0d;
+}
+
+.content-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.column-container {
+  width: 66%;
+  max-width: 650px;
+  background-color: #ff9494;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 3rem 2.5rem;
+}
+
+.article-text {
+  width: 100%;
+  max-width: 520px;
+  font-size: clamp(1.02rem, 1.4vw, 1.08rem);
+  font-weight: 500;
+  line-height: 1.48;
+  color: #111111;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.article-text + .article-text {
+  margin-top: 1.4rem;
+}
+
+.citation-link {
+  color: #0d0d0d;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.citation-link:hover {
+  color: #ffffff;
+  background-color: #ff3b30;
+}
+
+.topic-banner-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    transparent calc(50% - min(33%, 325px)),
+    #ff9494 calc(50% - min(33%, 325px)),
+    #ff9494 calc(50% + min(33%, 325px)),
+    transparent calc(50% + min(33%, 325px))
+  );
+  padding: 0.75rem 0;
+  z-index: 2;
+}
+
+.topic-banner-box {
+  background-color: #ff3b30;
+  width: 53%;
+  min-height: clamp(145px, 20vw, 235px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1.5rem 0;
+}
+
+.topic-banner-title {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(1.85rem, 5.2vw, 4rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+  transform: translateX(38%);
+}
+
+.page-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.footer-container {
+  flex: 1;
+  padding-top: 1.5rem;
+  padding-bottom: 4.5rem;
+  border-top: 2px solid rgba(17, 17, 17, 0.2);
+}
+
+.footer-text {
+  width: 100%;
+  max-width: 520px;
+  font-size: clamp(0.95rem, 1.3vw, 1.02rem);
+  font-weight: 500;
+  line-height: 1.48;
+  color: #111111;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media (max-width: 900px) {
+  .column-container {
+    width: 82%;
+    padding: 2rem;
+  }
+
+  .topic-banner-row {
+    background: linear-gradient(
+      to right,
+      transparent 9%,
+      #ff9494 9%,
+      #ff9494 91%,
+      transparent 91%
+    );
+  }
+
+  .topic-banner-box {
+    width: 56%;
+  }
+
+  .topic-banner-title {
+    transform: translateX(34%);
+  }
+}
+
+@media (max-width: 560px) {
+  .column-container {
+    width: 88%;
+    padding: 1.6rem 1.35rem;
+  }
+
+  .topic-banner-row {
+    background: linear-gradient(
+      to right,
+      transparent 6%,
+      #ff9494 6%,
+      #ff9494 94%,
+      transparent 94%
+    );
+  }
+
+  .topic-banner-box {
+    width: 64%;
+    min-height: 125px;
+  }
+
+  .topic-banner-title {
+    font-size: clamp(1.5rem, 7.2vw, 2.1rem);
+    transform: translateX(26%);
+  }
+}
